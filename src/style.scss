@@ -1,0 +1,42 @@
+img{
+  -webkit-filter: url("#filter");
+  filter: url("#filter");
+  width: 80%;
+  margin-top: 10vh;
+  margin-left: 10%;
+
+}
+
+.svg-filters {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+@font-face {
+  font-family: "Art";
+  src: url("assets/ArtDystopia.otf") format("opentype");
+}
+*{
+  font-family: 'Art';
+  font-size: 5vh;
+  background-size:contain;
+  background-repeat: no-repeat;
+  text-transform: uppercase;
+
+
+}
+
+.text{
+  position: absolute;
+  top:70vh;
+  color:rgba(255,105,180,1);
+  font-size: 2em;
+  background-color: rgba(0,0,0,0);
+  text-align: center;
+   text-shadow: 4px 2px rgba(255,255,180,0.5);
+   -webkit-filter: url("#filter");
+   filter: url("#filter");
+
+}
