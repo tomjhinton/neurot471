@@ -25,6 +25,15 @@ class Main extends React.Component{
   componentDidMount(){
     axios.get('/api/works')
       .then(res => this.setState({works: res.data}))
+    //   let t = 1
+    //   let a
+    // setInterval(() => {
+    //     t+=1
+    //     a = Math.abs(Math.sin(t))
+    //     console.log(a)
+    //     this.setState({bass: `${a/100} ${a/100}` })
+    //   }, 200);
+
 
   }
 
@@ -36,9 +45,9 @@ class Main extends React.Component{
 
   mouseMove(e){
 
-    console.log(e)
-    console
-    this.setState({bass: `${e.screenX /10000} ${e.screenY /10000} `, scale: `${e.screenY /5}` })
+    console.log()
+
+    this.setState({bass: `${e.screenX /200000} ${e.screenY /200000} `, scale: `${e.screenY /2}` })
   }
 
 
@@ -52,7 +61,7 @@ class Main extends React.Component{
   <defs>
     <filter id="filter">
       <feTurbulence type="fractalNoise" baseFrequency={this.state.bass} numOctaves="5" result="warp"></feTurbulence>
-      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale={this.state.scale} in="SourceGraphic" in2="warpOffset" />
+      <feDisplacementMap xChannelSelector="R" yChannelSelector="B" scale={this.state.scale} in="SourceGraphic" in2="warpOffset" />
     </filter>
   </defs>
 </svg>
