@@ -20,7 +20,8 @@ def random_color():
     random.shuffle(rgbl)
     return tuple(rgbl)
 
-
+db.drop_all_tables(with_all_data=True)
+db.create_tables()
 def draw_pastell(nx=900, ny=1600, CL=180, rshift=3):
     nz=3
     mid = nx//2
@@ -71,8 +72,6 @@ def draw_pastell(nx=900, ny=1600, CL=180, rshift=3):
     buf = io.BytesIO()
     im1.save(buf, format='PNG')
     thing = buf.getvalue()
-    db.drop_all_tables(with_all_data=True)
-    db.create_tables()
     with db_session():
 
 
@@ -99,4 +98,10 @@ def draw_pastell(nx=900, ny=1600, CL=180, rshift=3):
         db.commit()
 
 
+draw_pastell(nx=900, ny=1600, CL=181, rshift=3)
+draw_pastell(nx=900, ny=1600, CL=181, rshift=3)
+draw_pastell(nx=900, ny=1600, CL=181, rshift=3)
+draw_pastell(nx=900, ny=1600, CL=181, rshift=3)
+draw_pastell(nx=900, ny=1600, CL=181, rshift=3)
+draw_pastell(nx=900, ny=1600, CL=181, rshift=3)
 draw_pastell(nx=900, ny=1600, CL=181, rshift=3)

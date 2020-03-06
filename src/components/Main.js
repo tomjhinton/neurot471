@@ -56,7 +56,7 @@ class Main extends React.Component{
 
 
     return (
-      <div>
+      <div onMouseMove={this.mouseMove}>
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="svg-filters">
   <defs>
     <filter id="filter">
@@ -67,8 +67,16 @@ class Main extends React.Component{
 </svg>
 
 
-        {this.state.works &&<img src={`data:image/png;base64,  ${this.state.works[0].dat.slice(2).slice(0, -1)}`} onMouseMove={this.mouseMove}/>}
-        <h1 className="text"  onMouseMove={this.mouseMove}>The intersection of art  and technology</h1>
+        {this.state.works &&this.state.works.map(x=>{
+        return(
+          <div key={x.id}>
+          <img src={`data:image/png;base64,  ${x.dat.slice(2).slice(0, -1)}`} />
+          <h1 className="text"  onMouseMove={this.mouseMove}>The intersection of art  and technology</h1>
+          </div>
+        )
+
+
+      })}
 
 
 
