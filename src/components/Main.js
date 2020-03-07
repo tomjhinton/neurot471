@@ -14,6 +14,8 @@ class Main extends React.Component{
     }
     this.componentDidMount = this.componentDidMount.bind(this)
     this.mouseMove = this.mouseMove.bind(this)
+    this.mouseOver = this.mouseOver.bind(this)
+    this.mouseOff = this.mouseOff.bind(this)
 
 
 
@@ -47,7 +49,19 @@ class Main extends React.Component{
 
     console.log()
 
-    this.setState({bass: `${e.screenX /200000} ${e.screenY /200000} `, scale: `${e.screenY /2}` })
+    this.setState({bass: `${e.screenX /50000} ${e.screenY /50000} `, scale: `${e.screenY /2}` })
+  }
+
+  mouseOver(e){
+
+    console.log()
+
+    e.target.classList.remove('distort')
+  }
+
+  mouseOff(e){
+
+    e.target.classList.add('distort')
   }
 
 
@@ -56,7 +70,7 @@ class Main extends React.Component{
 
 
     return (
-      <div onMouseMove={this.mouseMove}>
+      <div onMouseMove={this.mouseMove} className="body">
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="svg-filters">
   <defs>
     <filter id="filter">
@@ -65,13 +79,13 @@ class Main extends React.Component{
     </filter>
   </defs>
 </svg>
-
+      <h1 className="text"  onMouseMove={this.mouseMove}>The intersection of art  and technology</h1>
 
         {this.state.works &&this.state.works.map(x=>{
         return(
           <div key={x.id}>
-          <img src={`data:image/png;base64,  ${x.dat.slice(2).slice(0, -1)}`} />
-          <h1 className="text"  onMouseMove={this.mouseMove}>The intersection of art  and technology</h1>
+          <img src={`data:image/png;base64,  ${x.dat.slice(2).slice(0, -1)}`} className='distort' onMouseOver={this.mouseOver} onMouseLeave={this.mouseOff}/>
+
           </div>
         )
 
